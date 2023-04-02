@@ -49,8 +49,6 @@ RUN ${CONDA_PREFIX}/bin/conda init bash
 
 RUN conda install -n base -c conda-forge jupyterlab nb_conda_kernels kernda
 
-# RUN python3 -m pip install --no-cache-dir notebook jupyterlab
-
 RUN curl -sSL https://github.com/opera-adt/RTC/archive/refs/tags/v0.3.tar.gz -o rtc.tar.gz &&\
     tar -xvf rtc.tar.gz -C OPERA &&\
     ln -s OPERA/RTC-0.3 OPERA/RTC &&\
