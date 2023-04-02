@@ -32,6 +32,7 @@ RUN chmod -R 755 ${HOME} &&\
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
+USER ${NB_USER}
 
 RUN mkdir -p ${HOME}/OPERA/RTC
 
@@ -45,6 +46,8 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
 
 ENV PATH=${CONDA_PREFIX}/bin:${PATH}
 RUN ${CONDA_PREFIX}/bin/conda init bash
+
+
 
 RUN python3 -m pip install --no-cache-dir notebook jupyterlab
 
