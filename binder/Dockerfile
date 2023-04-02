@@ -48,7 +48,7 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
 ENV PATH=${CONDA_PREFIX}/bin:${PATH}
 RUN ${CONDA_PREFIX}/bin/conda init bash
 
-RUN conda install -n base -c conda-forge jupyterlab nb_conda_kernels kernda
+RUN conda install -n base -c conda-forge jupyterlab jupyter nb_conda_kernels kernda
 
 RUN curl -sSL https://github.com/opera-adt/RTC/archive/refs/tags/v0.3.tar.gz -o rtc.tar.gz &&\
     tar -xvf rtc.tar.gz -C OPERA &&\
@@ -60,8 +60,9 @@ RUN curl -sSL https://github.com/opera-adt/RTC/archive/refs/tags/v0.3.tar.gz -o 
 # COPY --chown=${NB_UID}:${NB_UID} . ${HOME}/OPERA/RTC
 
 # create CONDA environment
-RUN conda create --name "notebook" --file ${HOME}/OPERA/RTC-0.3/Docker/specfile.txt &&\
-    conda install -c conda-forge -n notebook asf_search boto3 
+RUN conda create --name notebook --file ${HOME}/OPERA/RTC-0.3/Docker/specfile.txt &&\
+    conda install -c conda-forge -n notebook asf_search boto3  &&\
+    conda run -n notebook kernda --display-name notebook -o /home/jovyan/miniconda3/notebook/share/jupyter/kernels/python3/kernel.json
 
 
 SHELL ["conda", "run", "-n", "notebook", "/bin/bash", "-c"]
