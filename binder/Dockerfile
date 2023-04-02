@@ -47,9 +47,9 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
 ENV PATH=${CONDA_PREFIX}/bin:${PATH}
 RUN ${CONDA_PREFIX}/bin/conda init bash
 
+RUN conda install -n base jupyterlab nb_conda_kernels kernda
 
-
-RUN python3 -m pip install --no-cache-dir notebook jupyterlab
+# RUN python3 -m pip install --no-cache-dir notebook jupyterlab
 
 RUN curl -sSL https://github.com/opera-adt/RTC/archive/refs/tags/v0.3.tar.gz -o rtc.tar.gz &&\
     tar -xvf rtc.tar.gz -C OPERA &&\
