@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -ex
-
-echo hello_world
-
-conda create --name "notebook" --file ${HOME}/OPERA/RTC-0.3/Docker/specfile.txt --force
