@@ -1,4 +1,4 @@
-name: isce3_rtc
+name: notebook
 channels:
   - conda-forge
 dependencies:
