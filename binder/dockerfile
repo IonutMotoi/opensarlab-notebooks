@@ -60,7 +60,7 @@ RUN conda create --name "RTC" --file /home/rtc_user/OPERA/RTC/Docker/specfile.tx
 
 SHELL ["conda", "run", "-n", "RTC", "/bin/bash", "-c"]
 
-WORKDIR /home/rtc_user/OPERA
+WORKDIR ${HOME}/OPERA
 
 # installing OPERA s1-reader
 RUN curl -sSL https://github.com/opera-adt/s1-reader/archive/refs/tags/v0.1.6.tar.gz -o s1_reader_src.tar.gz &&\
