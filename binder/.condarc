@@ -1,4 +1,0 @@
-envs_dirs:
-  - /home/jovyan/miniconda3
-  - /home/jovyan/miniconda3/notebook
-  - /home/jovyan/miniconda3/envs
