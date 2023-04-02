@@ -35,7 +35,7 @@ RUN chown -R ${NB_UID} ${HOME}
 
 RUN mkdir -p ${HOME}/OPERA/RTC
 
-# ENV CONDA_PREFIX=${HOME}/miniconda3
+ENV CONDA_PREFIX=${HOME}/miniconda3
 
 # install Miniconda
 WORKDIR ${HOME}
