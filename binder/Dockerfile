@@ -28,9 +28,10 @@ RUN chmod -R 755 ${HOME} &&\
     chown -R ${NB_USER}:${NB_USER} ${HOME}/OPERA
 
 # Make sure the contents of our repo are in ${HOME}
+# Make sure the contents of our repo are in ${HOME}
 COPY . ${HOME}
+USER root
 RUN chown -R ${NB_UID} ${HOME}
-
 USER ${NB_USER}
 
 RUN mkdir -p ${HOME}/OPERA/RTC
@@ -58,9 +59,9 @@ RUN curl -sSL https://github.com/opera-adt/RTC/archive/refs/tags/v0.3.tar.gz -o 
 COPY --chown=${NB_UID}:${NB_UID} . ${HOME}/OPERA/RTC
 
 # create CONDA environment
-RUN conda create --name "RTC" --file ${HOME}/OPERA/RTC-0.3/Docker/specfile.txt
+RUN conda create --name "notebook" --file ${HOME}/OPERA/RTC-0.3/Docker/specfile.txt
 
-SHELL ["conda", "run", "-n", "RTC", "/bin/bash", "-c"]
+SHELL ["conda", "run", "-n", "notebook", "/bin/bash", "-c"]
 
 WORKDIR ${HOME}/OPERA
 
@@ -71,8 +72,8 @@ RUN curl -sSL https://github.com/opera-adt/s1-reader/archive/refs/tags/v0.1.6.ta
     rm s1_reader_src.tar.gz &&\
     python -m pip install ./s1-reader
 
-RUN echo "conda activate RTC" >> ${HOME}/.bashrc
+RUN echo "conda activate notebook" >> ${HOME}/.bashrc
 
-WORKDIR ${HOME}/scratch
+# WORKDIR ${HOME}/scratch
 
 # ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "RTC"]
