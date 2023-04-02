@@ -61,7 +61,7 @@ RUN curl -sSL https://github.com/opera-adt/RTC/archive/refs/tags/v0.3.tar.gz -o 
 
 # create CONDA environment
 RUN conda create --name notebook --file ${HOME}/OPERA/RTC-0.3/Docker/specfile.txt &&\
-    conda install -c conda-forge -n notebook asf_search boto3   
+    conda install -c conda-forge -n notebook asf_search boto3 jupyter kernda
     # conda run -n notebook kernda --display-name notebook -o /home/jovyan/miniconda3/notebook/share/jupyter/kernels/python3/kernel.json
 
 
