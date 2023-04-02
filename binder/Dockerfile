@@ -30,6 +30,7 @@ RUN chmod -R 755 ${HOME} &&\
 # Make sure the contents of our repo are in ${HOME}
 # Make sure the contents of our repo are in ${HOME}
 COPY . ${HOME}
+COPY .condarc ${HOME}/.condarc
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
@@ -55,11 +56,13 @@ RUN curl -sSL https://github.com/opera-adt/RTC/archive/refs/tags/v0.3.tar.gz -o 
     rm rtc.tar.gz &&\
     python -m pip install ./OPERA/RTC-0.3
 
-# copy RTC source code and set jovyan as owner
-COPY --chown=${NB_UID}:${NB_UID} . ${HOME}/OPERA/RTC
+# # set jovyan as owner of 
+# COPY --chown=${NB_UID}:${NB_UID} . ${HOME}/OPERA/RTC
 
 # create CONDA environment
-RUN conda create --name "notebook" --file ${HOME}/OPERA/RTC-0.3/Docker/specfile.txt
+RUN conda create --name "notebook" --file ${HOME}/OPERA/RTC-0.3/Docker/specfile.txt &&\
+    conda install -c conda-forge -n notebook asf_search boto3 
+
 
 SHELL ["conda", "run", "-n", "notebook", "/bin/bash", "-c"]
 
