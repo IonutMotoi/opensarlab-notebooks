@@ -39,12 +39,12 @@ RUN mkdir -p ${HOME}/OPERA/RTC
 
 # install Miniconda
 WORKDIR ${HOME}
-# RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o miniconda.sh &&\
-#     bash miniconda.sh -b -p ${CONDA_PREFIX} &&\
-#     rm ${HOME}/miniconda.sh
+RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o miniconda.sh &&\
+    bash miniconda.sh -b -p ${CONDA_PREFIX} &&\
+    rm ${HOME}/miniconda.sh
 
-# ENV PATH=${CONDA_PREFIX}/bin:${PATH}
-# RUN ${CONDA_PREFIX}/bin/conda init bash
+ENV PATH=${CONDA_PREFIX}/bin:${PATH}
+RUN ${CONDA_PREFIX}/bin/conda init bash
 
 RUN python3 -m pip install --no-cache-dir notebook jupyterlab
 
