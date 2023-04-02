@@ -30,7 +30,7 @@ RUN chmod -R 755 ${HOME} &&\
 # Make sure the contents of our repo are in ${HOME}
 # Make sure the contents of our repo are in ${HOME}
 COPY . ${HOME}
-COPY .condarc ${HOME}/.condarc
+COPY ./.condarc ${HOME}/.condarc
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
