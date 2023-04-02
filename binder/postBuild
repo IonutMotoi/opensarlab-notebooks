@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -ex
+
+CONDARC=$HOME/.condarc &&\
+    cat <<EOT >> $CONDARC
+    envs_dirs:
+      - /home/jovyan/.local/envs
+      - /opt/conda/envs
+    EOT
