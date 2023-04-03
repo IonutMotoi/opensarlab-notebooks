@@ -8,7 +8,7 @@ if ! [ -d "$S1" ]; then
 ln -s ~/.local/s1-reader-0.1.6 "$S1"
 fi
 rm ~/.local/s1_reader_src.tar.gz
-conda run -n notebook python -m pip install "$S1"
+# conda run -n notebook python -m pip install "$S1"
 
 # installing OPERA RTC
 # RTC=$HOME/.local/RTC
