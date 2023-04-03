@@ -4,6 +4,7 @@ set -e
 # installing OPERA s1-reader
 S1=$HOME/.local/s1-reader
 
+mkdir -p ~/.local
 curl -sSL https://github.com/opera-adt/s1-reader/archive/refs/tags/v0.1.6.tar.gz -o ~/.local/s1_reader_src.tar.gz
 tar -zxvf ~/.local/s1_reader_src.tar.gz --directory ~/.local
 
