@@ -23,5 +23,3 @@ fi
 
 git clone https://github.com/opera-adt/RTC.git "$RTC"
 conda run -n notebook python -m pip install "$RTC"
-
-exec "$@"
