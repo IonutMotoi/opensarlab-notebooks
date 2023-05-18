@@ -2,7 +2,7 @@
 
 # ASF Jupyter Notebooks
 
-Use ISCE3 to generate an OPERA-like RTC for testing purposes. 
+Use ISCE3 to generate an OPERA-like Sentinel-1 RTC for testing purposes. 
 
 **This does not produce an OPERA standard product.**
 
