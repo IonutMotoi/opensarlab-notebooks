@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ASFOpenSARlab/opensarlab-notebooks/binder_SARHazards_Lab_ExploreTimeSeries?labpath=SARHazards_Lab_ExploreTimeSeries.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/IonutMotoi/opensarlab-notebooks/binder_SARHazards_Lab_ExploreTimeSeries/SARHazards_Lab_ExploreTimeSeries.ipynb)
 
 # ASF Jupyter Notebooks
 
